@@ -1,16 +1,9 @@
-var express = require('express');
-var http = require('http');
-var fs = require('fs');
+//Install express server
+const express = require('express');
+const app = express();
 
-var app = express();       
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist'));
 
-fs.readFile('./dist/index.html', function (err, html) {
-    if (err) {
-        throw err; 
-    }       
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(8080);
-});
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
