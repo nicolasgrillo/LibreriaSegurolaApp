@@ -1,26 +1,7 @@
-
-
-<nav class="navbar navbar-light" style="background-color: rgba(0, 0, 255, 0.5)"><a class="navbar-brand" style="color: white" href="#">{{title}}</a></nav>
-
-<label *ngIf = "!data" class="custom-file">
-        <input class="btn btn-secondary custom-file-input" type="file" title="Elegir Excel"  (change)="onFileChange($event)" multiple="false" />    
-        <span class="custom-file-control"></span>
-</label>
-
-<div *ngIf="data?.length > 0" >
-            <span class="btn-group-lg" style="float:left; background-color: rgba(0, 0, 255, 0.5); color: white" id="btnGroupAddon">
-                    Borrar
-            </span>
-            <input style="float:center;" [(ngModel)]="search" type="text" placeholder="ISBN" aria-label="ISBN" aria-describedby="btnGroupAddon" (keyup)="updateIsbn($event)" />
-        
-        <button class="btn btn-secondary" style="float:right;" *ngIf="data?.length > 0" (click)="export()">Exportar diferencia</button>
-</div>
-
-<table *ngIf="data?.length > 0" class="table table-striped table-dark table-hover table-bordered">
-    <tr *ngFor="let row of data">
-        <td *ngFor="let val of row">
-            {{val}}
-        </td>
-    </tr>
-</table>
-	
+<nav class="navbar navbar-light nav-libreria-header">
+  <a class="navbar-brand brand-libreria-header" routerLink="/home">{{title}}</a>
+  <a routerLink="/home">Inicio</a>
+  <a routerLink="/excel-import">Excel</a>
+</nav>
+<hr>
+<router-outlet></router-outlet>
