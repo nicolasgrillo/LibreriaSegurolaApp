@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
 import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
+import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExcelImportComponent,
     HomeComponent,
-    HelpComponent
+    HelpComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,
