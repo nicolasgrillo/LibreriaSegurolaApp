@@ -1,8 +1,8 @@
-.example-card {
+.card {
     max-width: 400px;
   }
   
-  .example-header-image {
+  .header-image {
     background-image: url('https://image.ibb.co/cduNUn/nicolas_a_grillo.jpg');
     background-size: cover;
   }
