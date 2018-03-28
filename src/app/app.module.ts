@@ -15,6 +15,7 @@ import { ExcelImportComponent } from './excel-import/excel-import.component';
 import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
 import { PolicyComponent } from './policy/policy.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PolicyComponent } from './policy/policy.component';
     ExcelImportComponent,
     HomeComponent,
     HelpComponent,
-    PolicyComponent
+    PolicyComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
