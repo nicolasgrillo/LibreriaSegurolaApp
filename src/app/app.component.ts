@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ls-root',
@@ -7,8 +8,14 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-	title = 'Libreria Segurola';
-	
-  constructor(){}
+  title = 'Libreria Segurola';
+  routeLinks:any[];
+  activeLinkIndex = 0;
+  constructor(private router: Router) {
+    this.routeLinks = [
+    {label: 'Home', link: '/home'},
+    {label: 'Excel', link: '/excel-import'}];
+
+  }
   
 }

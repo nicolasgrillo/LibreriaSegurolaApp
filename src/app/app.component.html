@@ -1,7 +1,20 @@
-<nav class="navbar navbar-light nav-libreria-header">
-  <a class="navbar-brand brand-libreria-header" routerLink="/home">{{title}}</a>
-  <a routerLink="/home">Inicio</a>
-  <a routerLink="/excel-import">Excel</a>
-</nav>
-<hr>
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+      <i class="material-icons" routerLink="/home">home</i>
+      <i class="material-icons" routerLink="/excel-import">description</i>
+
+      <span class="fill-remaining-space"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+  </mat-toolbar-row>
+      
+  <mat-menu #appMenu="matMenu">
+    <button routerLink="/help" mat-menu-item>Help</button>
+  </mat-menu>
+</mat-toolbar> 
+  
+  <hr>
 <router-outlet></router-outlet>
