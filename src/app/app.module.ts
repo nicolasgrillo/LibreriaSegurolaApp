@@ -7,16 +7,19 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
 import { HomeComponent } from './home/home.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExcelImportComponent,
-    HomeComponent
+    HomeComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
