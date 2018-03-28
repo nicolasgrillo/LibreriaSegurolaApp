@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
@@ -31,7 +32,10 @@ import { HelpComponent } from './help/help.component';
     MatToolbarModule,
     MatMenuModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
