@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'Libreria Segurola';
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
   
