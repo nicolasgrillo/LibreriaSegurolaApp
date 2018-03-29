@@ -6,9 +6,11 @@ import { HelpComponent } from './help/help.component';
 import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 
+import { AuthGuard } from './auth/auth.guard';
+
 const routes : Routes = [
   {path : '', component : HomeComponent},
-  {path: 'excel-import', component: ExcelImportComponent},
+  {path: 'excel-import', component: ExcelImportComponent, canActivate: [AuthGuard]},
   {path: 'help', component: HelpComponent},
   {path: 'policy', component: PolicyComponent},
   {path: 'terms', component: TermsComponent},
@@ -17,7 +19,8 @@ const routes : Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [AuthGuard]
 })
 
 export class AppRoutingModule { }
