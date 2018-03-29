@@ -19,6 +19,7 @@ import { TermsComponent } from './terms/terms.component';
 
 import { AuthService } from './auth.service';
 import { CallbackComponent } from './callback/callback.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CallbackComponent } from './callback/callback.component';
     HelpComponent,
     PolicyComponent,
     TermsComponent,
-    CallbackComponent
+    CallbackComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
