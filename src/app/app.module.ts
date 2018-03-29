@@ -17,7 +17,7 @@ import { HelpComponent } from './help/help.component';
 import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
 
