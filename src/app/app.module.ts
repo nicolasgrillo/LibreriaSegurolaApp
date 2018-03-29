@@ -17,6 +17,9 @@ import { HelpComponent } from './help/help.component';
 import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 
+import { AuthService } from './auth.service';
+import { CallbackComponent } from './callback/callback.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { TermsComponent } from './terms/terms.component';
     HomeComponent,
     HelpComponent,
     PolicyComponent,
-    TermsComponent
+    TermsComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import { TermsComponent } from './terms/terms.component';
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     })
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

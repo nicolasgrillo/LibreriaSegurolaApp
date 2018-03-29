@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'ls-root',
@@ -9,13 +10,9 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   title = 'Libreria Segurola';
-  routeLinks:any[];
-  activeLinkIndex = 0;
-  constructor(private router: Router) {
-    this.routeLinks = [
-    {label: 'Home', link: '/home'},
-    {label: 'Excel', link: '/excel-import'}];
 
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
   }
   
 }
