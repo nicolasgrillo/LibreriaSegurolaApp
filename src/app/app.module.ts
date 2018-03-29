@@ -20,6 +20,9 @@ import { TermsComponent } from './terms/terms.component';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ItemService } from './entities/item/item.service';
+import { ReceiptService } from './entities/receipt/receipt.service';
+import { SheetService } from './entities/sheet/sheet.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { ProfileComponent } from './profile/profile.component';
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     })
   ],
-  providers: [AuthService],
+  providers: [AuthService, 
+    ItemService, 
+    ReceiptService, 
+    SheetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
