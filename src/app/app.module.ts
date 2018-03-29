@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,6 +39,7 @@ import { SheetService } from './entities/sheet/sheet.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule, 
@@ -51,6 +53,7 @@ import { SheetService } from './entities/sheet/sheet.service';
     })
   ],
   providers: [AuthService, 
+    HttpClientModule,
     ItemService, 
     ReceiptService, 
     SheetService],
