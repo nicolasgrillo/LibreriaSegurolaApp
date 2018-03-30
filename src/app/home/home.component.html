@@ -1,12 +1,39 @@
-<mat-card class="ls-card">
-    <mat-card-header>
-        <mat-card-title>Libreria Segurola</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://image.ibb.co/mMFQLS/Libreria_Front.png" alt="Foto frontal de Libreria Segurola">
-    <mat-card-content>
-            <p>
-              Establecida en el año 1999 en el barrio de Floresta, la Librería Segurola atiende 
-              a sus vecinos con el mismo compromiso de siempre. 
-            </p>
-          </mat-card-content>
-</mat-card>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <mat-card class="ls-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h1>{{title}}</h1>
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image 
+                src="https://image.ibb.co/mMFQLS/Libreria_Front.png"
+                class="img-thumbnail img-responsive" 
+                alt="Foto frontal de Libreria Segurola">
+                <mat-card-content>
+                        <blockquote class=".blockquote-reverse">
+                        Establecida en el año 1999 en el barrio de Floresta, la Librería Segurola atiende 
+                        a sus vecinos con el mismo compromiso de siempre. 
+                        </blockquote>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="panel-group" id="accordion" *ngFor="let service of services; let i = index">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}">
+                        {{service.name}}</a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{i}}" class="panel-collapse collapse">
+                        <div class="panel-body">{{service.description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

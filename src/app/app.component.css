@@ -12,7 +12,7 @@
    flex: 1 1 auto;
  }
 
- .navigation-example {
+ .navigation-banner {
      background-image:url(https://image.ibb.co/gu8oKn/books_banner.jpg);
      background-position:50%;
      background-size:cover;
@@ -21,6 +21,23 @@
 }
 
 .ml-icon-background {
-    background:lightgray url('https://http2.mlstatic.com/ui/navigation/3.1.5/mercadolibre/logo__large_plus.png') no-repeat right top;
+    background:lightgray  no-repeat right top;
+    opacity: 0.8;
     border-radius: 25px;
+}
+
+@media (max-width: 400px) {
+    #copyright {
+       text-align: center;
+    }
+    #social > div{
+       display: block;
+       width: 100%;
+       margin: 0 auto;
+       text-align: center;
+    }
+}
+
+.navbanner-icon{
+    max-height: 50px;
 }

@@ -10,9 +10,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
 import { AgmCoreModule } from '@agm/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
@@ -59,6 +60,8 @@ import { StockComponent } from './stock/stock.component';
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
+    MatListModule,
+    Angular2FontawesomeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     })
