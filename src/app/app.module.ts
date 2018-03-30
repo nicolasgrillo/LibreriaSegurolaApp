@@ -4,12 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { AgmCoreModule } from '@agm/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
@@ -50,6 +53,10 @@ import { ContactComponent } from './contact/contact.component';
     MatMenuModule,
     MatTabsModule,
     MatCardModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     })
