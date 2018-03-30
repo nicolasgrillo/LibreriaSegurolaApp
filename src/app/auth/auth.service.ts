@@ -16,7 +16,7 @@ export class AuthService {
     domain: 'libreriasegurola.auth0.com',
     responseType: 'token id_token',
     audience: 'https://libreriasegurola.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'https://libreriasegurola.herokuapp.com/callback',
     scope: 'openid profile'});
 
   constructor(public router: Router) {
