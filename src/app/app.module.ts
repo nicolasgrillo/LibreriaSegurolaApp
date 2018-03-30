@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ItemService } from './entities/item/item.service';
 import { ReceiptService } from './entities/receipt/receipt.service';
 import { SheetService } from './entities/sheet/sheet.service';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SheetService } from './entities/sheet/sheet.service';
     PolicyComponent,
     TermsComponent,
     CallbackComponent,
-    ProfileComponent
+    ProfileComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
