@@ -8,3 +8,7 @@ agm-map {
     height: 310px;
     width: 510px;
 }
+
+.contact-card{
+    max-width: 80%;
+}

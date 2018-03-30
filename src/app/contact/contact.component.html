@@ -1,8 +1,48 @@
-<h1>Libreria Segurola</h1>
+<div class="row">
+  <div class="col-md-4">
+    <mat-card class="card contact-card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"><img mat-card-avatar src="https://scontent.faep9-1.fna.fbcdn.net/v/t1.0-9/18839127_1028318263935253_6520161094079664069_n.jpg?_nc_cat=0&oh=9e461bf57525c95ccd516dc80fe3db1e&oe=5B2C6B7C" alt="Profile Photo of Eduardo Grillo"></div>
+        <mat-card-title>Eduardo Grillo</mat-card-title>
+        <mat-card-subtitle>eduardogrillo@hotmail.com</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions>        
+        <a href="mailto:eduardogrillo@hotmail.com?Subject=Libreria%20Segurola%20-%20Pedido" target="_top">
+          <button mat-button><i class="material-icons">email</i></button> 
+        </a>     
+      </mat-card-actions>
+    </mat-card>
 
-<h3>Ubicación</h3>
-<div class="map-container">
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
+    <mat-card class="card contact-card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"><img mat-card-avatar src="https://scontent.faep9-1.fna.fbcdn.net/v/t1.0-9/1622781_10203399167049389_77119015_n.jpg?_nc_cat=0&oh=f7ff32956dbb37ab41317f13f8f9b13d&oe=5B33F882" alt="Profile Photo of Gladys Pampin"></div>
+        <mat-card-title>Gladys Pampin</mat-card-title>
+        <mat-card-subtitle>gladyspampin@hotmail.com</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions>        
+        <a href="mailto:gladyspampin@hotmail.com?Subject=Libreria%20Segurola%20-%20Pedido" target="_top">
+          <button mat-button><i class="material-icons">email</i></button> 
+        </a>     
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-3">
+    <mat-card-header>
+        <mat-card-title>Avenida Segurola 1192</mat-card-title>
+        <mat-card-subtitle>Ciudad autónoma de Buenos Aires, Argentina</mat-card-subtitle>
+        <mat-card-subtitle>Floresta</mat-card-subtitle>
+        <mat-card-subtitle>C1407ANX</mat-card-subtitle>
+    </mat-card-header>
+  </div>
+
+  <div class="col-md-5">
+    <div class="map-container">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
 </div>
