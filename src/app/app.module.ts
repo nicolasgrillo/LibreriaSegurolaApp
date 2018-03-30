@@ -28,6 +28,7 @@ import { ItemService } from './entities/item/item.service';
 import { ReceiptService } from './entities/receipt/receipt.service';
 import { SheetService } from './entities/sheet/sheet.service';
 import { ContactComponent } from './contact/contact.component';
+import { StockComponent } from './stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ContactComponent } from './contact/contact.component';
     TermsComponent,
     CallbackComponent,
     ProfileComponent,
-    ContactComponent
+    ContactComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,

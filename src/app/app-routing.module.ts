@@ -8,9 +8,11 @@ import { TermsComponent } from './terms/terms.component';
 import { ContactComponent } from './contact/contact.component';
 
 import { AuthGuard } from './auth/auth.guard';
+import { StockComponent } from './stock/stock.component';
 
 const routes : Routes = [
-  {path : '', component : HomeComponent},
+  {path: '', component : HomeComponent},
+  {path: 'stock', component: StockComponent},
   {path: 'excel-import', component: ExcelImportComponent, canActivate: [AuthGuard]},
   {path:'contact', component: ContactComponent},
   {path: 'help', component: HelpComponent},
