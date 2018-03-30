@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewInit() {    
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   getItems(){
