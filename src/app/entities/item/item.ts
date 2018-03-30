@@ -13,13 +13,13 @@ export class Item {
         for (const item of json) {
           const newItem: Item = new Item();
           newItem.ItemID = item.ItemID;
-          newItem.amount = item.amount;
-          newItem.isbn = item.isbn;
-          newItem.price = item.price;
-          newItem.publisher = item.publisher;
-          newItem.receiptCode = item.receiptCode;
-          newItem.returnDate = item.returnDate;
-          newItem.title = item.title;
+          newItem.amount = item.Amount;
+          newItem.isbn = item.Isbn;
+          newItem.price = item.Price;
+          newItem.publisher = item.Publisher;
+          newItem.receiptCode = item.ReceiptCode;
+          newItem.returnDate = item.ReturnDate;
+          newItem.title = item.Title;
           items.push(newItem);
         }
         return items;
