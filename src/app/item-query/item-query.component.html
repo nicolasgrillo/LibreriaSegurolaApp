@@ -1,0 +1,20 @@
+<h2>Detalle de libros</h2>
+<div *ngIf="showSpinner">
+    <img src="..\..\assets\img\loading.svg">
+</div>
+<form *ngIf="!showSpinner" [formGroup]="bookForm">
+  <div class="form-group">
+    <label class="center-block">ISBN:
+      <input class="form-control" (input)="getBook($event.target.value)" formControlName="isbn">
+    </label>
+    <label class="center-block">Titulo:
+      <input class="form-control" formControlName="title">
+    </label>    
+    <label class="center-block">Editorial:
+      <input class="form-control" formControlName="publisher">
+    </label>
+    <label class="center-block">Precio:
+      <input class="form-control" formControlName="price">
+    </label>    
+  </div>
+</form>

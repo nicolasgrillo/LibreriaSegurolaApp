@@ -16,6 +16,11 @@ export class ItemService {
     .map((res: Response) => Item.fromJsonArray(res))  
     .catch((error: any) => Observable.throw(error || 'Server error'));  
   }
+
+  getItem(isbn : string): Observable<Item> {
+    return this.httpClient.get(this.url + "/book/" + isbn)
+    .catch((error : any) => Observable.throw(error || 'Server error'));
+  }
   
   postItem(item : Item): Observable<Item> {
     let body = JSON.stringify(item);
