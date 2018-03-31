@@ -14,23 +14,23 @@ export class ItemService {
   getItems(): Observable<Item[]> {  
     return this.httpClient.get(this.url)  
     .map((res: Response) => Item.fromJsonArray(res))  
-    .catch((error: any) => Observable.throw(error || 'Server error'));  
+    .catch((error: any) => Observable.throw(error.message || 'Server error'));  
   }
 
   getItemForExport(isbn : string): Observable<ExportItem> {  
     return this.httpClient.get(this.url + "/book/" + isbn)    
-    .catch((error: any) => Observable.throw(error || 'Server error'));  
+    .catch((error: any) => Observable.throw(error.message || 'Server error'));  
   }
 
   getItem(isbn : string): Observable<Item> {
     return this.httpClient.get(this.url + "/book/" + isbn)
-    .catch((error : any) => Observable.throw(error || 'Server error'));
+    .catch((error : any) => Observable.throw(error.message || 'Server error'));
   }
   
   saveItem(item : ExportItem): Observable<ExportItem> {
     let body = JSON.stringify(item);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
     return this.httpClient.post(this.url, body, httpOptions)
-    .catch((error:any) => Observable.throw(error || 'Server error'));
+    .catch((error:any) => Observable.throw(error.message || 'Server error'));
   }     
 }
