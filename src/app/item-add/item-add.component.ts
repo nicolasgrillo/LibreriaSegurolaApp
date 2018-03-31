@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { ItemService } from '../entities/item/item.service';
-import { ExportItem } from '../entities/item/item';
+import { Item } from '../entities/item/item';
 
 @Component({
   selector: 'app-item-add',
@@ -11,16 +11,18 @@ import { ExportItem } from '../entities/item/item';
 export class ItemAddComponent implements OnInit {
 
   bookForm : FormGroup;
-  bookFound : ExportItem;
-  newBook : ExportItem;
+  bookFound : Item;
+  newBook : Item;
   receiptCode : string;
-  datePicked: any = { date: { year: 2018, month: 10, day: 9 } };
+  datePicked: any = { date: { year: new Date().getFullYear() , month: new Date().getMonth() , day: new Date().getDate() } };
   INgxMyDpOptions = {
     // other options...
     jsdate: new Date(),
     dateFormat: 'dd/mm/yyyy'
   };
   public showSpinner: boolean = false;
+
+  
 
   constructor(private fb: FormBuilder,
     private itemService: ItemService) { 
@@ -43,7 +45,7 @@ export class ItemAddComponent implements OnInit {
   getBook(e){
     this.showLoadingSpinner();
     this.itemService.getItemForExport(e).subscribe(
-      (respItem: ExportItem) => {
+      (respItem: Item) => {
         this.bookFound = respItem;
         this.newBook = respItem;
         this.hideLoadingSpinner();
@@ -63,14 +65,14 @@ export class ItemAddComponent implements OnInit {
       publisher: ['', Validators.required ],
       price: ['', Validators.required ],
       receipt: ['', Validators.required ],
-      sheet: ['', Validators.required ]
+      returnDate: ['', Validators.required ]
     });
 
     this.bookForm.get('title').disable();
     this.bookForm.get('publisher').disable();
     this.bookForm.get('price').disable();
     this.bookForm.get('receipt').disable();
-    this.bookForm.get('sheet').disable();
+    this.bookForm.get('returnDate').disable();
   }
   
   rebuildForm(){
@@ -80,20 +82,21 @@ export class ItemAddComponent implements OnInit {
       publisher: [this.bookFound.publisher , Validators.required],
       price: [this.bookFound.price , Validators.required],
       receipt: [this.receiptCode, Validators.required],
-      sheet: [this.datePicked, Validators.required]       
+      returnDate: [this.datePicked, Validators.required]       
     });
     this.bookForm.get('title').enable();
     this.bookForm.get('publisher').enable();
     this.bookForm.get('price').enable();
     this.bookForm.get('receipt').enable();
-    this.bookForm.get('sheet').enable();
+    this.bookForm.get('returnDate').enable();
   }
 
-  prepareSaveBook() : ExportItem{
+  prepareSaveBook() : Item{
+    
     const formModel = this.bookForm.value;
-    var formattedDate : String = this.bookForm.controls["sheet"].value.date.day + "/" + this.bookForm.controls["sheet"].value.date.month + "/" + this.bookForm.controls["sheet"].value.date.year;
+    const formattedDate = this.formatDatePicked(this.bookForm);
 
-    const saveBook: ExportItem = {
+    const saveBook: Item = {
       title: formModel.title as string,
       publisher: formModel.publisher as string,
       price: formModel.price as number,
@@ -103,6 +106,15 @@ export class ItemAddComponent implements OnInit {
       amount: 1
     };
     return saveBook;
+  }
+
+  private formatDatePicked(bf: any): String {
+    var dayPicked = bf.controls["returnDate"].value.date.day;
+    dayPicked = parseInt(dayPicked, 10);
+    var monthPicked = bf.controls["returnDate"].value.date.month;
+    monthPicked = parseInt(monthPicked, 10);
+    var yearPicked = bf.controls["returnDate"].value.date.year;
+    return dayPicked + "/" + monthPicked +  "/" + yearPicked;
   }
 
   showLoadingSpinner() {

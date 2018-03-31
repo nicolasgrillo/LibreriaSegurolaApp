@@ -1,12 +1,12 @@
 export class Item {
-    ItemID: number;
+    ItemID?: number;
     isbn: string;
     title: string;
     publisher: string;
     amount: number;
     receiptCode: string;
     price: number;
-    returnDate: Date;
+    returnDate: any;
 
     public static fromJsonArray(json: any): Item[] {
       const items: Item[] = new Array<Item>();
@@ -29,14 +29,4 @@ export class Item {
       const items = [ json ];
       return Item.fromJsonArray(items)[0];
     }
-}
-
-export class ExportItem{
-  isbn: string;
-  title: string;
-  publisher: string;
-  amount: number;
-  receiptCode: string;
-  price: number;
-  returnDate: string;
 }

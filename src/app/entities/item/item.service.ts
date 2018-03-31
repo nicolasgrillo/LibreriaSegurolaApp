@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Item, ExportItem } from './item';
+import { Item } from './item';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class ItemService {
     .catch((error: any) => Observable.throw(error.message || 'Server error'));  
   }
 
-  getItemForExport(isbn : string): Observable<ExportItem> {  
+  getItemForExport(isbn : string): Observable<Item> {  
     return this.httpClient.get(this.url + "/book/" + isbn)    
     .catch((error: any) => Observable.throw(error.message || 'Server error'));  
   }
@@ -27,7 +27,10 @@ export class ItemService {
     .catch((error : any) => Observable.throw(error.message || 'Server error'));
   }
   
-  saveItem(item : ExportItem): Observable<ExportItem> {
+  saveItem(item : Item): Observable<Item> {
+    var dateString = item.returnDate.split('/');
+    item.returnDate = new Date(dateString[2], dateString[1], dateString[0]);
+    console.log(item);
     let body = JSON.stringify(item);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
     return this.httpClient.post(this.url, body, httpOptions)

@@ -21,8 +21,8 @@
     </label>
     <label class="center-block">Fecha Devolucion:
       <div>
-        <input  style="float:none" placeholder="Fecha de devolucion" ngx-mydatepicker name="sheet"
-        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="sheet"/>
+        <input  style="float:none" placeholder="Fecha de devolucion" ngx-mydatepicker name="returnDate"
+        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="returnDate"/>
         <span >
             <button type="button" mat-button (click)="dp.toggleCalendar()">
                 <i class="material-icons">date_range</i>
