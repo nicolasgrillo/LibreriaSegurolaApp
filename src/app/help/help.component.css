@@ -1,8 +1,12 @@
 .card {
-    max-width: 400px;
+    max-width: 600px;
   }
   
   .header-image {
     background-image: url('https://image.ibb.co/cduNUn/nicolas_a_grillo.jpg');
     background-size: cover;
+  }
+
+  .margin-divider{
+    margin: 10px;
   }

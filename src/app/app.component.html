@@ -11,7 +11,7 @@
         <span class="fill-remaining-space"></span>
 
         <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
-            Log In
+            Admin
         </button>
 
         <app-profile *ngIf="auth.isAuthenticated()"></app-profile>
