@@ -16,6 +16,7 @@ export class StockComponent implements OnInit {
   displayedColumns = ['isbn', 'title', 'publisher', 'price']
   items: Item[] = [];
   dataSource; 
+  public showSpinner: boolean = false;
 
   constructor(private itemService : ItemService) { }
 
@@ -24,14 +25,16 @@ export class StockComponent implements OnInit {
   }
 
   getItems(){
+    this.showLoadingSpinner();
     this.itemService.getItems().subscribe(
       (respItems: Item[]) => {
         this.items = respItems;
         this.dataSource = new MatTableDataSource<Item>(this.items);
         this.dataSource.sort = this.sort;
-        console.log(respItems);
+        this.hideLoadingSpinner();
       },
       error => {
+        this.hideLoadingSpinner();
         alert(error);
       }
     );
@@ -41,6 +44,14 @@ export class StockComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  showLoadingSpinner() {
+    this.showSpinner = true;
+  }
+
+  hideLoadingSpinner() {
+    this.showSpinner = false;
   }
 
 }

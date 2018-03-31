@@ -1,6 +1,9 @@
 <h1>Inventario actual</h1>
 
-<div>
+<div *ngIf="showSpinner">
+    <img src="..\..\assets\img\loading.svg">
+</div>
+<div *ngIf="!showSpinner">
   <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar...">
   </mat-form-field>

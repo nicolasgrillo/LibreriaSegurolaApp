@@ -7,7 +7,8 @@ import 'rxjs/Rx';
 @Injectable()
 export class ItemService {
 
-  url = "https://webapilibreriasegurola.azurewebsites.net/api/items"
+  url = "https://webapilibreriasegurola.azurewebsites.net/api/items";
+    
   constructor(private httpClient: HttpClient) { }
 
   getItems(): Observable<Item[]> {  
