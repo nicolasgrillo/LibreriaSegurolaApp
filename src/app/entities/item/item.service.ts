@@ -27,10 +27,7 @@ export class ItemService {
     .catch((error : any) => Observable.throw(error.message || 'Server error'));
   }
   
-  saveItem(item : Item): Observable<Item> {
-    var dateString = item.returnDate.split('/');
-    item.returnDate = new Date(dateString[2], dateString[1], dateString[0]);
-    console.log(item);
+  saveItem(item : Item): Observable<Item> {    
     let body = JSON.stringify(item);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
     return this.httpClient.post(this.url, body, httpOptions)

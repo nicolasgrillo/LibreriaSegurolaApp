@@ -21,9 +21,7 @@ export class ItemAddComponent implements OnInit {
     dateFormat: 'dd/mm/yyyy'
   };
   public showSpinner: boolean = false;
-
   
-
   constructor(private fb: FormBuilder,
     private itemService: ItemService) { 
       this.createForm();
@@ -94,14 +92,15 @@ export class ItemAddComponent implements OnInit {
   prepareSaveBook() : Item{
     
     const formModel = this.bookForm.value;
-    const formattedDate = this.formatDatePicked(this.bookForm);
+    var formattedDate = this.formatDatePicked(this.bookForm);
+    var dateString = formattedDate.split('/');
 
     const saveBook: Item = {
       title: formModel.title as string,
       publisher: formModel.publisher as string,
       price: formModel.price as number,
       receiptCode: formModel.receipt as string,
-      returnDate: formattedDate as string,
+      returnDate: new Date(parseInt(dateString[2]), parseInt(dateString[1]), parseInt(dateString[0])),
       isbn: formModel.isbn as string,
       amount: 1
     };
