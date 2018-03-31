@@ -2,27 +2,33 @@
 <div *ngIf="showSpinner">
     <img src="..\..\assets\img\loading.svg">
 </div>
+<div *ngIf="error && !showSpinner" class="alert alert-danger" role="alert">{{error}}</div>
 <form *ngIf="!showSpinner" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label class="center-block">ISBN:
-      <input class="form-control" (input)="getBook($event.target.value)" formControlName="isbn">
+      <input #isbnInput class="form-control" (input)="getBook($event.target.value)" formControlName="isbn" [class.is-invalid]="errorMsgIsbn">
+      <div class="invalid-feedback">{{errorMsgIsbn}}</div>
     </label>
     <label class="center-block">Titulo:
-      <input class="form-control" formControlName="title">
+      <input class="form-control" formControlName="title" [class.is-invalid]="errorMsgTitle">
+      <div class="invalid-feedback">{{errorMsgTitle}}</div>
     </label>    
     <label class="center-block">Editorial:
-      <input class="form-control" formControlName="publisher">
+      <input class="form-control" formControlName="publisher" [class.is-invalid]="errorMsgPublisher">
+      <div class="invalid-feedback">{{errorMsgPublisher}}</div>
     </label>
     <label class="center-block">Precio:
-      <input class="form-control" formControlName="price">
+      <input class="form-control" formControlName="price" [class.is-invalid]="errorMsgPrice">
+      <div class="invalid-feedback">{{errorMsgPrice}}</div>
     </label>    
     <label class="center-block">Recibo:
-      <input class="form-control" formControlName="receipt">
+      <input class="form-control" formControlName="receipt" [class.is-invalid]="errorMsgReceipt">
+      <div class="invalid-feedback">{{errorMsgReceipt}}</div>
     </label>
     <label class="center-block">Fecha Devolucion:
       <div>
         <input  style="float:none" placeholder="Fecha de devolucion" ngx-mydatepicker name="returnDate"
-        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="returnDate"/>
+        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="returnDate" [class.is-invalid]="errorMsgReturnDate"/>
         <span >
             <button type="button" mat-button (click)="dp.toggleCalendar()">
                 <i class="material-icons">date_range</i>
@@ -32,7 +38,8 @@
             </button>            
         </span>
       </div>
+      <div class="invalid-feedback">{{errorMsgReturnDate}}</div>
     </label> 
   </div>
-  <button type="submit" [disabled]="bookForm.pristine" class="btn btn-success">Save</button>
+  <button type="submit" [disabled]="!bookForm.valid" class="btn btn-success">Save</button>
 </form>
