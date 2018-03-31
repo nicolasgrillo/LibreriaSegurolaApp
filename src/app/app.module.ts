@@ -13,7 +13,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { AgmCoreModule } from '@agm/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
@@ -31,6 +32,7 @@ import { SheetService } from './entities/sheet/sheet.service';
 import { ContactComponent } from './contact/contact.component';
 import { StockComponent } from './stock/stock.component';
 import { ItemQueryComponent } from './item-query/item-query.component';
+import { ItemAddComponent } from './item-add/item-add.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ItemQueryComponent } from './item-query/item-query.component';
     ProfileComponent,
     ContactComponent,
     StockComponent,
-    ItemQueryComponent
+    ItemQueryComponent,
+    ItemAddComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { ItemQueryComponent } from './item-query/item-query.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMyDatePickerModule.forRoot()
   ],
   providers: [AuthService, 
     HttpClientModule,

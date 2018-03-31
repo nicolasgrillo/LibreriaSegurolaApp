@@ -30,3 +30,13 @@ export class Item {
       return Item.fromJsonArray(items)[0];
     }
 }
+
+export class ExportItem{
+  isbn: string;
+  title: string;
+  publisher: string;
+  amount: number;
+  receiptCode: string;
+  price: number;
+  returnDate: string;
+}

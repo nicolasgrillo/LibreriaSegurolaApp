@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Item } from './item';
+import { Item, ExportItem } from './item';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -17,15 +17,20 @@ export class ItemService {
     .catch((error: any) => Observable.throw(error || 'Server error'));  
   }
 
+  getItemForExport(isbn : string): Observable<ExportItem> {  
+    return this.httpClient.get(this.url + "/book/" + isbn)    
+    .catch((error: any) => Observable.throw(error || 'Server error'));  
+  }
+
   getItem(isbn : string): Observable<Item> {
     return this.httpClient.get(this.url + "/book/" + isbn)
     .catch((error : any) => Observable.throw(error || 'Server error'));
   }
   
-  postItem(item : Item): Observable<Item> {
+  saveItem(item : ExportItem): Observable<ExportItem> {
     let body = JSON.stringify(item);
-    return this.httpClient.post(this.url, body)
-    .map((res:Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+    return this.httpClient.post(this.url, body, httpOptions)
+    .catch((error:any) => Observable.throw(error || 'Server error'));
   }     
 }

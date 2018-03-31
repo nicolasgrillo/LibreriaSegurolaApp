@@ -30,6 +30,8 @@
     "auth0-js": "^9.4.2",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
+    "ng2-datetime": "^1.4.0",
+    "ngx-mydatepicker": "^2.4.5",
     "rxjs": "^5.5.2",
     "xlsx": "^0.12.2",
     "zone.js": "^0.8.14"
