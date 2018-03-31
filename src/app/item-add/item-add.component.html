@@ -1,0 +1,38 @@
+<h2>Agregar un libro</h2>
+<div *ngIf="showSpinner">
+    <img src="..\..\assets\img\loading.svg">
+</div>
+<form *ngIf="!showSpinner" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="center-block">ISBN:
+      <input class="form-control" (input)="getBook($event.target.value)" formControlName="isbn">
+    </label>
+    <label class="center-block">Titulo:
+      <input class="form-control" formControlName="title">
+    </label>    
+    <label class="center-block">Editorial:
+      <input class="form-control" formControlName="publisher">
+    </label>
+    <label class="center-block">Precio:
+      <input class="form-control" formControlName="price">
+    </label>    
+    <label class="center-block">Recibo:
+      <input class="form-control" formControlName="receipt">
+    </label>
+    <label class="center-block">Fecha Devolucion:
+      <div>
+        <input  style="float:none" placeholder="Fecha de devolucion" ngx-mydatepicker name="sheet"
+        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="sheet"/>
+        <span >
+            <button type="button" mat-button (click)="dp.toggleCalendar()">
+                <i class="material-icons">date_range</i>
+            </button>
+            <button type="button" mat-button (click)="dp.clearDate()">
+                <i class="material-icons">clear</i>
+            </button>            
+        </span>
+      </div>
+    </label> 
+  </div>
+  <button type="submit" [disabled]="bookForm.pristine" class="btn btn-success">Save</button>
+</form>
