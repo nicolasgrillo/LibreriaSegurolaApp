@@ -38,7 +38,7 @@
     </mat-card-header>
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-5" fxHide fxShow.gt-md>
     <div class="map-container">
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
