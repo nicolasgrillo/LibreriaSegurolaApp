@@ -1,17 +1,19 @@
-<div class="container">
+<div class="container ">
   <mat-toolbar color="primary" class="main-toolbar" >
 
     <mat-toolbar-row>
-        <span>Libreria Segurola</span>
-        <button mat-button routerLink="/home"><i class="material-icons">home</i></button>
+      <span>Libreria Segurola</span>
+      <button mat-button routerLink="/home"><i class="material-icons">home</i></button>      
+    
+      <span class="fill-remaining-space"></span>
+
+      <div fxHide fxShow.gt-md>
         <button mat-button routerLink="/stock"><i class="material-icons">list</i></button>
         <button mat-button routerLink="/contact"><i class="material-icons">contact_mail</i></button>
         <button mat-button routerLink="/excel-import" *ngIf="auth.isAuthenticated()"><i class="material-icons">description</i></button>
         <button mat-button routerLink="/item-query" *ngIf="auth.isAuthenticated()"><i class="material-icons">search</i></button>
         <button mat-button routerLink="/item-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">add</i></button>
-
-        <span class="fill-remaining-space"></span>
-
+            
         <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
             Admin
         </button>
@@ -21,17 +23,39 @@
         <button mat-button *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
             Log Out
         </button>
+
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
+      </div>
+      
+      <div fxShow fxHide.gt-md>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+      </div>
+      
     </mat-toolbar-row>
         
-    <mat-menu #appMenu="matMenu">
-      <button routerLink="/help" mat-menu-item>Help</button>
-      <button routerLink="/policy" mat-menu-item>Privacy Policy</button>
-      <button routerLink="/terms" mat-menu-item>Terms and Conditions</button>
+    <mat-menu x-position="before" #appMenu="matMenu">
+      <button routerLink="/help" mat-menu-item>Ayuda</button>
+      <button routerLink="/policy" mat-menu-item>Politica de privacidad</button>
+      <button routerLink="/terms" mat-menu-item>Terminos y condiciones</button>
+    </mat-menu>
+    <mat-menu x-position="before" #menu="matMenu">
+      <button routerLink="/stock" mat-menu-item>Stock</button>
+      <button routerLink="/contact" mat-menu-item>Contacto</button>
+      <button routerLink="/excel-import" *ngIf="auth.isAuthenticated()" mat-menu-item>Excel</button>
+      <button routerLink="/item-query" *ngIf="auth.isAuthenticated()" mat-menu-item>Buscar</button>
+      <button routerLink="/item-add" *ngIf="auth.isAuthenticated()" mat-menu-item>Agregar</button>
+      <button *ngIf="!auth.isAuthenticated()" (click)="auth.login()" mat-menu-item>Admin</button>
+      <button *ngIf="auth.isAuthenticated()" (click)="auth.login()" mat-menu-item>Log out</button>
     </mat-menu>
   </mat-toolbar>
+    
   
   <div class="navigation-banner">
     <nav class="navbar navbar-expand-md navbar-transparent">

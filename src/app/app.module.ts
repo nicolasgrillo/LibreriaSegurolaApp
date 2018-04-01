@@ -13,8 +13,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { AgmCoreModule } from '@agm/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { ExcelImportComponent } from './excel-import/excel-import.component';
@@ -66,7 +66,7 @@ import { ItemAddComponent } from './item-add/item-add.component';
     MatPaginatorModule,
     MatInputModule,
     MatListModule,
-    Angular2FontawesomeModule,
+    FlexLayoutModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     }),
