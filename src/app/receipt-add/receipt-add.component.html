@@ -11,7 +11,7 @@
     </label> 
     <label class="center-block">Sabana:
         <select  class="form-control" (change)="valueChanges($event.target.value)" formControlName="sheetId"> 
-          <option *ngFor="let sheet of sheets" [value]="sheet.sheetId">{{sheet.shipDate | date: 'dd/MM/yyyy'}}</option>
+          <option *ngFor="let sheet of sheets" [value]="sheet.sheetID">{{sheet.shipDate | date: 'dd/MM/yyyy'}}</option>
         </select>
     </label>
 

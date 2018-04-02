@@ -22,8 +22,9 @@
       <div class="invalid-feedback">{{errorMsgPrice}}</div>
     </label>    
     <label class="center-block">Recibo:
-      <input class="form-control" formControlName="receipt" [class.is-invalid]="errorMsgReceipt">
-      <div class="invalid-feedback">{{errorMsgReceipt}}</div>
+        <select  class="form-control" (change)="valueChanges($event.target.value)" formControlName="receipt"> 
+          <option *ngFor="let receipt of receipts" [value]="receipt.receiptId">{{receipt.receiptCode}}</option>
+        </select>
     </label>
     <label class="center-block">Fecha Devolucion:
       <div>

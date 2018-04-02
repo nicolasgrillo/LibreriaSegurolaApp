@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl  } from '@angular/f
 import { ItemService } from '../entities/item/item.service';
 import { Item } from '../entities/item/item';
 import { Router } from '@angular/router';
+import { Receipt } from '../entities/receipt/receipt';
+import { ReceiptService } from '../entities/receipt/receipt.service';
 
 @Component({
   selector: 'app-item-add',
@@ -16,7 +18,8 @@ export class ItemAddComponent implements OnInit {
   bookForm : FormGroup;
   bookFound : Item;
   newBook : Item = new Item();
-  receiptCode : string;
+  receipts : Receipt[] = [];
+  selectedReceipt : string;
   error: string;
   datePicked: any;
   INgxMyDpOptions = {
@@ -30,14 +33,16 @@ export class ItemAddComponent implements OnInit {
   errorMsgTitle : string;
   errorMsgReceipt : string;
   errorMsgReturnDate : string;
-  validationMsg = 'The field is required';
+  validationMsg = 'El campo es requerido';
   
   constructor(private fb: FormBuilder,
     private itemService: ItemService,
+    private receiptService: ReceiptService,
     private router: Router) {      
   }
 
   ngOnInit() {
+    this.getReceipts();
     this.createForm();
   }
 
@@ -71,6 +76,18 @@ export class ItemAddComponent implements OnInit {
         );
     }
   }
+  getReceipts(){
+    this.showLoadingSpinner;
+    this.receiptService.getReceipts().subscribe(
+      (respReceipts: Receipt[]) => {
+        this.receipts = respReceipts;
+        this.hideLoadingSpinner();
+      },
+      err => {
+        this.hideLoadingSpinner();
+        this.error = err;
+      })     
+  }
 
   getBook(e){
     this.showLoadingSpinner();
@@ -95,14 +112,13 @@ export class ItemAddComponent implements OnInit {
       title: [this.newBook.title, [Validators.required]],
       publisher: [this.newBook.publisher, [Validators.required]],
       price: [this.newBook.price, [Validators.required]],
-      receipt: [this.newBook.receiptCode, [Validators.required]],
+      receipt: [this.selectedReceipt, [Validators.required]],
       returnDate: [this.newBook.returnDate, [Validators.required]]
     });
 
     this.bookForm.get('title').disable();
     this.bookForm.get('publisher').disable();
     this.bookForm.get('price').disable();
-    this.bookForm.get('receipt').disable();
     this.bookForm.get('returnDate').disable();
 
     const isbnControl: AbstractControl = this.bookForm.get('isbn');
@@ -124,7 +140,6 @@ export class ItemAddComponent implements OnInit {
     this.bookForm.get('title').enable();
     this.bookForm.get('publisher').enable();
     this.bookForm.get('price').enable();
-    this.bookForm.get('receipt').enable();
     this.bookForm.get('returnDate').enable();
   }
 
@@ -162,6 +177,11 @@ export class ItemAddComponent implements OnInit {
       ).join(' ');
 		}
 		return '';
+  }
+
+  valueChanges(e){
+    this.selectedReceipt = e;
+    console.log(this.selectedReceipt);
   }
   
   private focusInput(): void {

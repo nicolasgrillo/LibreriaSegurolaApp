@@ -13,13 +13,13 @@ export class ReceiptService {
   getReceipts(): Observable<Receipt[]> {  
     return this.httpClient.get(this.url)  
     .map((res: Response) => Receipt.fromJsonArray(res))  
-    .catch((error: any) => Observable.throw(error.message || 'Server error'));  
+    .catch((error: any) => Observable.throw(error || 'Server error'));  
   }
 
   saveReceipt(receipt : Receipt): Observable<Receipt> {    
     let body = JSON.stringify(receipt);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
     return this.httpClient.post(this.url, body, httpOptions)
-    .catch((error:any) => Observable.throw(error.message || 'Server error'));
+    .catch((error:any) => Observable.throw(error || 'Server error'));
   }   
 }

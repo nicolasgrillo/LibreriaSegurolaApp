@@ -1,16 +1,18 @@
 export class Receipt {
+    receiptId? : number = 0;
     receiptCode: string;
     sheetId: number;
 
     public static fromJsonArray(json: any): Receipt[] {
-        const Receipts: Receipt[] = new Array<Receipt>();
-        for (const Receipt of json) {
+        const receipts: Receipt[] = new Array<Receipt>();
+        for (const receipt of json) {
           const newReceipt: Receipt = new Receipt();
-          newReceipt.receiptCode = Receipt.receiptCode;   
-          newReceipt.sheetId = Receipt.ReceiptId;      
-          Receipts.push(newReceipt);
+          newReceipt.receiptId = receipt.receiptID;
+          newReceipt.receiptCode = receipt.receiptCode;   
+          newReceipt.sheetId = receipt.sheetId;      
+          receipts.push(newReceipt);
         }
-        return Receipts;
+        return receipts;
       }
   
       public static fromJson(json: any): Receipt {
