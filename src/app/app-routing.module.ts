@@ -6,7 +6,6 @@ import { HelpComponent } from './help/help.component';
 import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 import { ContactComponent } from './contact/contact.component';
-import { CallbackComponent } from './callback/callback.component';
 
 import { AuthGuard } from './auth/auth.guard';
 import { StockComponent } from './stock/stock.component';
@@ -23,7 +22,6 @@ const routes : Routes = [
   {path: 'help', component: HelpComponent},
   {path: 'policy', component: PolicyComponent},
   {path: 'terms', component: TermsComponent},
-  {path: 'callback', component: CallBackComponent},
   {path: '**', redirectTo: ''}
 ]
 
