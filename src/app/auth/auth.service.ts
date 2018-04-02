@@ -11,6 +11,7 @@ export class AuthService {
   userProfile: any;
   accessToken: string;
   authenticated: boolean;
+  authUri = environment.authURI;
 
   auth0 = new auth0.WebAuth({
     clientID: 'f8UWFI1fUR5X3ibuD7xRLGjRYhrE2Cn5',

@@ -13,7 +13,6 @@ import { ItemQueryComponent } from './item-query/item-query.component';
 import { ItemAddComponent } from './item-add/item-add.component';
 import { SheetAddComponent } from './sheet-add/sheet-add.component';
 import { ReceiptAddComponent } from './receipt-add/receipt-add.component';
-import { CallbackComponent } from './callback/callback.component';
 
 const routes : Routes = [
   {path: '', component : HomeComponent},
@@ -27,7 +26,6 @@ const routes : Routes = [
   {path: 'help', component: HelpComponent},
   {path: 'policy', component: PolicyComponent},
   {path: 'terms', component: TermsComponent},
-  {path: 'callback', component: CallbackComponent},
   {path: '**', redirectTo: ''}
 ]
 
