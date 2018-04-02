@@ -1,14 +1,16 @@
 export class Sheet {
+    sheetID? : number = 0;
     shipDate: Date;
 
     public static fromJsonArray(json: any): Sheet[] {
-        const Sheets: Sheet[] = new Array<Sheet>();
-        for (const Sheet of json) {
-          const newSheet: Sheet = new Sheet();
-          newSheet.shipDate = Sheet.ShipDate;          
-          Sheets.push(newSheet);
+      const sheets: Sheet[] = new Array<Sheet>();
+      for (const sheet of json) {
+          const newSheet: Sheet = new Sheet();      
+          newSheet.sheetID = sheet.sheetID;
+          newSheet.shipDate = new Date(sheet.shipDate);
+          sheets.push(newSheet);
         }
-        return Sheets;
+        return sheets;
       }
   
       public static fromJson(json: any): Sheet {

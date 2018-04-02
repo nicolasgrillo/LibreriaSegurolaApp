@@ -1,0 +1,20 @@
+<h2>Agregar un recibo</h2>
+<div *ngIf="showSpinner">
+    <img src="..\..\assets\img\loading.svg">
+</div>
+<div *ngIf="error && !showSpinner" class="alert alert-danger" role="alert">{{error}}</div>
+<form *ngIf="!showSpinner" [formGroup]="receiptForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="center-block">Código de recibo:
+      <input class="form-control" formControlName="receiptCode" [class.is-invalid]="errorMsgReceiptCode">
+      <div class="invalid-feedback">{{errorMsgReceiptCode}}</div>
+    </label> 
+    <label class="center-block">Sabana:
+        <select  class="form-control" (change)="valueChanges($event.target.value)" formControlName="sheetId"> 
+          <option *ngFor="let sheet of sheets" [value]="sheet.sheetId">{{sheet.shipDate | date: 'dd/MM/yyyy'}}</option>
+        </select>
+    </label>
+
+  </div>
+  <button type="submit" [disabled]="!receiptForm.valid" class="btn btn-success">Save</button>
+</form>

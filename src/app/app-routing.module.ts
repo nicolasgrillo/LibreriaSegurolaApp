@@ -12,6 +12,7 @@ import { StockComponent } from './stock/stock.component';
 import { ItemQueryComponent } from './item-query/item-query.component';
 import { ItemAddComponent } from './item-add/item-add.component';
 import { SheetAddComponent } from './sheet-add/sheet-add.component';
+import { ReceiptAddComponent } from './receipt-add/receipt-add.component';
 
 const routes : Routes = [
   {path: '', component : HomeComponent},
@@ -20,6 +21,7 @@ const routes : Routes = [
   {path: 'item-query', component: ItemQueryComponent, canActivate: [AuthGuard]},
   {path: 'item-add', component: ItemAddComponent, canActivate: [AuthGuard]},
   {path: 'sheet-add', component: SheetAddComponent, canActivate: [AuthGuard]},
+  {path: 'receipt-add', component: ReceiptAddComponent, canActivate: [AuthGuard]},
   {path:'contact', component: ContactComponent},
   {path: 'help', component: HelpComponent},
   {path: 'policy', component: PolicyComponent},

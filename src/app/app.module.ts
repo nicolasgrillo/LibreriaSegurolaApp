@@ -35,6 +35,7 @@ import { StockComponent } from './stock/stock.component';
 import { ItemQueryComponent } from './item-query/item-query.component';
 import { ItemAddComponent } from './item-add/item-add.component';
 import { SheetAddComponent } from './sheet-add/sheet-add.component';
+import { ReceiptAddComponent } from './receipt-add/receipt-add.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SheetAddComponent } from './sheet-add/sheet-add.component';
     StockComponent,
     ItemQueryComponent,
     ItemAddComponent,
-    SheetAddComponent
+    SheetAddComponent,
+    ReceiptAddComponent
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,10 @@ export class SheetAddComponent implements OnInit {
             this.newSheet = new Sheet();
             this.createForm();
           },
-          (err: any) => this.error = err
+          (err: any) => {
+            if (err.status == 409) this.error = "No se puede agregar: La sabana ya existe";
+            else this.error = err;
+          }
         );
     }
   }
