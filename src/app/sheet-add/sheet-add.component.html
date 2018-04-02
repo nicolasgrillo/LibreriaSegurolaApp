@@ -1,0 +1,25 @@
+<h2>Agregar una sabana</h2>
+<div *ngIf="showSpinner">
+    <img src="..\..\assets\img\loading.svg">
+</div>
+<div *ngIf="error && !showSpinner" class="alert alert-danger" role="alert">{{error}}</div>
+<form *ngIf="!showSpinner" [formGroup]="sheetForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="center-block">Fecha de envío:
+      <div>
+        <input  style="float:none" placeholder="Fecha de envío" ngx-mydatepicker name="shipDate"
+        [(ngModel)]="datePicked" [options]="INgxMyDpOptions" #dp="ngx-mydatepicker" formControlName="shipDate" [class.is-invalid]="errorMsgShipDate"/>
+        <span >
+            <button type="button" mat-button (click)="dp.toggleCalendar()">
+                <i class="material-icons">date_range</i>
+            </button>
+            <button type="button" mat-button (click)="dp.clearDate()">
+                <i class="material-icons">clear</i>
+            </button>            
+        </span>
+      </div>
+      <div class="invalid-feedback">{{errorMsgShipDate}}</div>
+    </label> 
+  </div>
+  <button type="submit" [disabled]="!sheetForm.valid" class="btn btn-success">Save</button>
+</form>

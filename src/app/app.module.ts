@@ -33,6 +33,7 @@ import { ContactComponent } from './contact/contact.component';
 import { StockComponent } from './stock/stock.component';
 import { ItemQueryComponent } from './item-query/item-query.component';
 import { ItemAddComponent } from './item-add/item-add.component';
+import { SheetAddComponent } from './sheet-add/sheet-add.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ItemAddComponent } from './item-add/item-add.component';
     ContactComponent,
     StockComponent,
     ItemQueryComponent,
-    ItemAddComponent
+    ItemAddComponent,
+    SheetAddComponent
   ],
   imports: [
     BrowserModule,

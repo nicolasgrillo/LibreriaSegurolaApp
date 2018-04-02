@@ -8,12 +8,15 @@
       <span class="fill-remaining-space"></span>
 
       <div fxHide fxShow.gt-md>
-        <button mat-button routerLink="/stock"><i class="material-icons">list</i></button>
-        <button mat-button routerLink="/contact"><i class="material-icons">contact_mail</i></button>
-        <button mat-button routerLink="/excel-import" *ngIf="auth.isAuthenticated()"><i class="material-icons">description</i></button>
-        <button mat-button routerLink="/item-query" *ngIf="auth.isAuthenticated()"><i class="material-icons">search</i></button>
-        <button mat-button routerLink="/item-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">add</i></button>
-            
+        <div class="button-row">
+          <button mat-button routerLink="/stock"><i class="material-icons">list</i></button>
+          <button mat-button routerLink="/contact"><i class="material-icons">contact_mail</i></button>
+          <button mat-button routerLink="/excel-import" *ngIf="auth.isAuthenticated()"><i class="material-icons">description</i></button>
+          <button mat-button routerLink="/item-query" *ngIf="auth.isAuthenticated()"><i class="material-icons">search</i></button>
+          <button mat-button routerLink="/item-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">add</i></button>
+          <button mat-button routerLink="/sheet-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">create_new_folder</i></button>
+        </div>
+        
         <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
             Admin
         </button>
