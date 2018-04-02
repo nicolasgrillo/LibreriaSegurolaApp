@@ -3,33 +3,27 @@
 
     <mat-toolbar-row>
       <span>Libreria Segurola</span>
-      <button mat-button routerLink="/home"><i class="material-icons">home</i></button>      
-    
+      <button mat-icon-button routerLink="/home" matTooltip="Inicio" ><i class="material-icons">home</i></button>  
       <span class="fill-remaining-space"></span>
-
       <div fxHide fxShow.gt-md>
-        <div class="button-row">
-          <button mat-button routerLink="/stock"><i class="material-icons">list</i></button>
-          <button mat-button routerLink="/contact"><i class="material-icons">contact_mail</i></button>
-          <button mat-button routerLink="/excel-import" *ngIf="auth.isAuthenticated()"><i class="material-icons">description</i></button>
-          <button mat-button routerLink="/item-query" *ngIf="auth.isAuthenticated()"><i class="material-icons">search</i></button>
-          <button mat-button routerLink="/item-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">add</i></button>
-          <button mat-button routerLink="/sheet-add" *ngIf="auth.isAuthenticated()"><i class="material-icons">create_new_folder</i></button>
-        </div>
-        
-        <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
-            Admin
-        </button>
+          <button mat-icon-button routerLink="/stock" matTooltip="Inventario"><i class="material-icons">list</i></button>
+          <button mat-icon-button routerLink="/contact" matTooltip="Contacto"><i class="material-icons">contact_mail</i></button>
+          <button mat-icon-button routerLink="/excel-import" *ngIf="auth.isAuthenticated()" matTooltip="Excel"><i class="material-icons">description</i></button>
+          <button mat-icon-button routerLink="/item-query" *ngIf="auth.isAuthenticated()" matTooltip="Consultar ISBN"><i class="material-icons">search</i></button>
+          <button mat-icon-button routerLink="/item-add" *ngIf="auth.isAuthenticated()" matTooltip="Agregar Item"><i class="material-icons">add</i></button>
+          <button mat-icon-button routerLink="/sheet-add" *ngIf="auth.isAuthenticated()" matTooltip="Agregar Sabana"><i class="material-icons">create_new_folder</i></button>
+                  
+          <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+              Admin
+          </button>
+          <app-profile *ngIf="auth.isAuthenticated()"></app-profile>        
+          <button mat-button *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+              Log Out
+          </button>
+          <button class="nav-libreria-button" mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
 
-        <app-profile *ngIf="auth.isAuthenticated()"></app-profile>
-        
-        <button mat-button *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
-            Log Out
-        </button>
-
-        <button mat-icon-button [matMenuTriggerFor]="appMenu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
       </div>
       
       <div fxShow fxHide.gt-md>
@@ -53,9 +47,10 @@
       <button routerLink="/contact" mat-menu-item>Contacto</button>
       <button routerLink="/excel-import" *ngIf="auth.isAuthenticated()" mat-menu-item>Excel</button>
       <button routerLink="/item-query" *ngIf="auth.isAuthenticated()" mat-menu-item>Buscar</button>
-      <button routerLink="/item-add" *ngIf="auth.isAuthenticated()" mat-menu-item>Agregar</button>
+      <button routerLink="/item-add" *ngIf="auth.isAuthenticated()" mat-menu-item>Agregar Item</button>
+      <button routerLink="/sheet-add" *ngIf="auth.isAuthenticated()" mat-menu-item>Agregar Sabana</button>
       <button *ngIf="!auth.isAuthenticated()" (click)="auth.login()" mat-menu-item>Admin</button>
-      <button *ngIf="auth.isAuthenticated()" (click)="auth.login()" mat-menu-item>Log out</button>
+      <button *ngIf="auth.isAuthenticated()" (click)="auth.logout()" mat-menu-item>Log out</button>
     </mat-menu>
   </mat-toolbar>
     
@@ -64,12 +59,12 @@
     <nav class="navbar navbar-expand-md navbar-transparent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item navbanner-icon">
-          <a class="nav-link" href="https://www.facebook.com/LibSegurola/" target="_blank">
-              <i class="fab fa-facebook fa-3x"></i>
+          <a class="nav-link" href="https://www.facebook.com/LibSegurola/" target="_blank" matTooltip="Facebook page">
+              <i class="fab fa-facebook fa-3x" ></i>
           </a>
         </li>
         <li class="nav-item navbanner-icon ml-icon-background">
-            <a href="https://listado.mercadolibre.com.ar/libreria-segurola#D[A:libreria%20segurola]" target="_blank">
+            <a href="https://listado.mercadolibre.com.ar/libreria-segurola#D[A:libreria%20segurola]" target="_blank" matTooltip="Articulos en MercadoLibre">
             <img src="https://http2.mlstatic.com/ui/navigation/3.1.5/mercadolibre/logo__large_plus.png"></a>
         </li>      
       </ul>

@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AgmCoreModule } from '@agm/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
@@ -73,7 +74,8 @@ import { SheetAddComponent } from './sheet-add/sheet-add.component';
       apiKey: 'AIzaSyD0nwEmfpyYQKpj2mBzG6mk62nN8YIJwuQ'
     }),
     ReactiveFormsModule,
-    NgxMyDatePickerModule.forRoot()
+    NgxMyDatePickerModule.forRoot(),
+    MatTooltipModule
   ],
   providers: [AuthService, 
     HttpClientModule,
